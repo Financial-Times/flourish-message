@@ -10,7 +10,7 @@ between a Flourish template and its parent frame.
 ```js
 import { initChildMessaging } from "@financial-times/flourish-message";
 
-const state = {}; // Can also be imported state
+let state = {}; // Can also be imported state
 
 /* 
   This will log payload to console when the parent sends a message in format:
@@ -25,7 +25,7 @@ const listeners = {
   messageFromParent: messageFromParentListener,
 };
 
-initChildMessaging({ state, listeners });
+state = initChildMessaging({ state, listeners });
 ```
 
 ### In your front-end (parent) code

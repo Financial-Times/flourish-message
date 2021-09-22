@@ -16,20 +16,17 @@ export const initChildMessaging = ({ state, listeners }) => {
 
   window.addEventListener("message", initReceivers(listeners));
 
-  const stateProxy = onChange(
-    state,
-    (path, value, previousValue, applyData) => {
-      window.parent.postMessage({
-        type: "STATE_CHANGE",
-        payload: {
-          path,
-          value,
-          previousValue,
-          state,
-        },
-      });
-    }
-  );
+  return onChange(state, (path, value, previousValue, applyData) => {
+    window.parent.postMessage({
+      type: "STATE_CHANGE",
+      payload: {
+        path,
+        value,
+        previousValue,
+        state,
+      },
+    });
+  });
 };
 
 export const initParentMessaging = ({ target = null, listeners = {} }) => {
@@ -38,5 +35,5 @@ export const initParentMessaging = ({ target = null, listeners = {} }) => {
     return;
   }
 
-  target.addEventListener("message", initReceivers(listeners));
+  target.addEventListener("message", initReceivers(listeners, true));
 };
