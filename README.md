@@ -51,7 +51,7 @@ const listeners = {
   stateChange: stateChangeListener,
 };
 
-initParentMessaging({ target: viz.iframe, listeners });
+initParentMessaging({ target: iframe, listeners });
 ```
 
 Flourish Message comes bundled with a `waitForIframes` helper that returns a promise:
@@ -82,7 +82,7 @@ waitForIframes().then((iframes) => {
       stateChange: stateChangeListener,
     };
 
-    initParentMessaging({ target: viz.iframe, listeners });
+    initParentMessaging({ target: iframe, listeners });
   });
 });
 ```
