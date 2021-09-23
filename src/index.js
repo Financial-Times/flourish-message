@@ -16,7 +16,7 @@ export const initChildMessaging = ({ state, listeners }) => {
 
   window.addEventListener("message", initReceivers(listeners));
 
-  return onChange(state, (path, value, previousValue, applyData) => {
+  return onChange(state, (path, value, previousValue) => {
     window.parent.postMessage({
       type: "STATE_CHANGE",
       payload: {
