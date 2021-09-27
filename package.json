@@ -1,6 +1,6 @@
 {
   "name": "@financial-times/flourish-message",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "",
   "main": "src/index.js",
   "scripts": {
