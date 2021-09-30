@@ -1,4 +1,4 @@
-name: "release-tags"
+name: "Create release on new tag"
 
 on:
   push:
@@ -24,4 +24,4 @@ jobs:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: false
           files: |
-            pkg/*
+            pkg/**
